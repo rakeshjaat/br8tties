@@ -75,6 +75,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         >
           <MenuCloseIcon />
         </button>
+       
       </div>
       <ImageModal closeModal={closeModal} isOpen={isOpen} />
     </div>

@@ -7,12 +7,14 @@ import Sidebar from "./Sidebar";
 import { useState } from "react";
 import ImageModal from "../ImageModal";
 import Image from "next/image";
+import ProfileSideBar from "./ProfileSideBar";
 
 
 const Navbar = () => {
   const pathname = usePathname();
   let [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
   function closeModal() {
     setIsOpen(false);
   }
@@ -28,6 +30,8 @@ const Navbar = () => {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
+      <ProfileSideBar   isProfileSidebarOpen={isProfileSidebarOpen}
+        setIsProfileSidebarOpen={setIsProfileSidebarOpen} />
 
       {/* navbar */}
       <div className="max-w-[1240px] w-full mx-auto px-3">
@@ -44,7 +48,7 @@ const Navbar = () => {
               width={100}
               height={100}
               className="mx-auto" />
-           
+
           </Link>
 
           {/* links */}
@@ -88,6 +92,12 @@ const Navbar = () => {
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="lg:hidden hover:scale-95 transition-all duration-150 ease-in-out"
+          >
+            <Sidebaricon />
+          </button>
+          <button
+            onClick={() => setIsProfileSidebarOpen(!isProfileSidebarOpen)}
+            className="hover:scale-95 transition-all duration-150 ease-in-out"
           >
             <Sidebaricon />
           </button>
